@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <!-- Qeul ingrédient avec vous aujourdui -->
+        <div id="Mod1">
+        <p id="title">Quel ingrédients <br>avez vous aujourd'hui ?</p>
+        <div id="searchbar-container">
+         <input type="text" id="searchbar" placeholder="Rechercher un ingrédients...">
+         </div>
+        <div id="ingredients">
+            <!-- Ici tu change pour mettre des boutons tout ca -->
+            <div class="ingredient" id="salade"><img class="imgingredient" src="salade.png" alt=""></div>
+            <div class="ingredient" id="pain"><img class="imgingredient" src="pain.png" alt=""></div>
+            <div class="ingredient" id="tomate"><img class="imgingredient" src="tomate.png" alt=""></div>
+            <div class="ingredient" id="carotte"><img class="imgingredient" src="karotte.png" alt=""></div>
+            <div class="ingredient" id="patate"><img class="imgingredient" src="patate.png" alt=""></div>
+            <div class="ingredient" id="lait"><img class="imgingredient" src="lait.png" alt=""></div>
+            <div class="ingredient" id="fromage"><img class="imgingredient" src="fromage.png" alt=""></div>
+            <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        </div>
+        </div>
+
+        <!-- TOUT LE TRUC AVEC les recette enregistré -->
+         <footer>
+         </footer>
+        <div id="Mod2">
+            <p id="title2">Recettes enregistrées</p>
+            <div id="saved-recipes">
+
+                <!-- Ici tu met les recettes enregistré  ta juste a copier coller et changer l'image & la description-->
+                <div class="recipe-card">
+                    <img src="39917640.png" alt="Recette 1" class="recipe-image">
+                    <div class="recipe-info">
+                        <h3>Recette 1</h3>
+                         <p>description bla bla bla miam tartiflette</p>
+                     </div>
+                </div>
+                <div class="recipe-card">
+                    <img src="39917640.png" alt="Recette 1" class="recipe-image">
+                    <div class="recipe-info">
+                        <h3>Recette 1</h3>
+                         <p>description bla bla bla miam tartiflette</p>
+                     </div>
+                </div>
+
+
+                </div>
+            </div>
+    </main>
+    <footer>
+    <!-- Les deux boutons en bas -->
+        <div id="buttonsgenerercontainer">
+            <div id="btngenerer"><img src="image-removebg-preview__1_-removebg-preview-Photoroom.png" id="logogenerer"><p id="txtgenerer">Générer</p></div>
+            </div>
+        <div id = "btningredient"><img src="image-removebg-preview__1_-removebg-preview-Photoroom.png" id="logoingrdient"></div>
+    </footer>
+<script>
+
+    let panier = [
+
+    ];
+        const img = [
+            { id: "salade",  image_nrml: "salade.png", image_sel: "" },
+            { id: "pain",  image_nrml: "pain.png", image_sel: "pain 2.png" },
+            { id: "tomate",  image_nrml: "tomate.png", image_sel: "" },
+            { id: "carotte",  image_nrml: "karotte.png", image_sel: "" }
+        ];
+    //prend tout les boutons ingrédients
+
+    let btningredient = document.querySelectorAll(".ingredient");
+    btningredient.forEach(button => {
+        button.addEventListener("click", function() {
+            console.log("Ingrédient  !");
+            let ingredientId =this.id
+            console.log(ingredientId);
+            if (panier.includes(ingredientId)) { //si l'ingrédient est déjà dans le panier
+            this.innerHTML = `<img class="imgingredient" src="${img.find(i => i.id === ingredientId).image_nrml}" alt="">`;
+                const index = panier.indexOf(ingredientId);
+                if (index !== -1) {
+                panier.splice(index, 1);
+                console.log(panier); //enlève l'ingrédient du panier
+                }   
+                return; // Sort de la fonction si l'ingrédient est déjà dans le panier
+            }
+            else{
+                //le met si c'est pas dedans
+                panier.push(ingredientId);
+                console.log(panier);
+                this.innerHTML = `<img class="imgingredient" src="${img.find(i => i.id === ingredientId).image_sel}" alt="">`;
+            }
+
+
+
+        });
+    });
+
+
+    const API_KEY  = "AIzaSyBZG8NH7J0JN-_NcqSdjp7i1_ONTVx0iDQ";
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`
+
+
+async function askGemini(question) {
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "x-goog-api-key": API_KEY
+        },
+        body: JSON.stringify({
+            contents: [
+                {
+                    parts: [{ text: question }]
+                }
+            ]
+        })
+    });
+    const data = await response.json();
+    console.log(data.candidates[0].content.parts[0].text);
+    return data.candidates[0].content.parts[0].text;
+}
+
+
+askGemini("Quelle est la couleur de cheveux de Donald Trump ?")
+
+    </script>
+
+</body>
+</html>

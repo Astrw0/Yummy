@@ -1,0 +1,240 @@
+<<<<<<< HEAD
+@font-face {
+    font-family : arialrounded;
+    src: url(arialroundedmtbold.ttf);
+}
+
+body{
+    background-color: rgba(255, 255, 255, 0.934);
+    overflow-x: hidden;
+    color: black;
+    -webkit-text-stroke: 0px ;
+    -webkit-text-stroke-color: aliceblue;
+
+  text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),
+     1px -1px 0 rgb(255, 255, 255),
+    -1px  1px 0 rgb(255, 255, 255),
+     1px  1px 0 rgb(255, 255, 255);
+}
+
+#title{
+    color: rgb(0, 0, 0);
+    font-family: 'arialrounded', sans-serif;
+    margin-top: 50px;
+    font-size: 30px;
+    margin-left: 20px;
+    font-weight: 900px;
+}
+
+#searchbar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchbar{
+    width: 90%;
+    height: 45px;
+    font-size: 16px;
+    padding-left: 17px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+}
+
+#ingredients {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2,auto);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+img {
+    width: 100%;
+}
+
+/* BOUTON GENERER pour changer la position change right et bottom */
+#buttonsgenerercontainer{
+  position: fixed;
+  bottom: 10px;
+  left: 190px;
+  width: 40%;
+margin: 12px;
+  display: flex;
+  color: white;
+justify-content: center;
+align-items: center;
+  padding: 12px;
+    border-radius: 35px;
+  background: rgb(0, 0, 0);
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+  z-index: 1;
+  font-size: 20px;
+}
+
+#logogenerer{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+
+}
+
+#btngenerer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+/* BOUTON INGRÉDIENT pour changer la position change right et bottom */
+
+
+#btningredient{
+    margin-left: 20px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 35px;
+    position: fixed;
+    bottom: 10px;
+    right: 180px;
+    width: 20%;
+    margin: 12px;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+#logoingrdient{
+    width: 50px;
+    height: 50px;
+}
+
+@media screen and (min-width: 1280px) {
+    main {
+       width: 80%;
+       display: flex;
+        margin: auto;
+    } 
+=======
+@font-face {
+    font-family : arialrounded;
+    src: url(arialroundedmtbold.ttf);
+}
+
+body{
+    background-color: rgba(255, 255, 255, 0.934);
+    overflow-x: hidden;
+    color: black;
+    -webkit-text-stroke: 0px ;
+    -webkit-text-stroke-color: aliceblue;
+
+  text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),
+     1px -1px 0 rgb(255, 255, 255),
+    -1px  1px 0 rgb(255, 255, 255),
+     1px  1px 0 rgb(255, 255, 255);
+}
+
+#title{
+    color: rgb(0, 0, 0);
+    font-family: 'arialrounded', sans-serif;
+    margin-top: 50px;
+    font-size: 30px;
+    margin-left: 20px;
+    font-weight: 900px;
+}
+
+#searchbar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchbar{
+    width: 90%;
+    height: 45px;
+    font-size: 16px;
+    padding-left: 17px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+}
+
+#ingredients {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2,auto);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+img {
+    width: 100%;
+}
+
+/* BOUTON GENERER pour changer la position change right et bottom */
+#buttonsgenerercontainer{
+  position: fixed;
+  bottom: 10px;
+  left: 190px;
+  width: 40%;
+margin: 12px;
+  display: flex;
+  color: white;
+justify-content: center;
+align-items: center;
+  padding: 12px;
+    border-radius: 35px;
+  background: rgb(0, 0, 0);
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+  z-index: 1;
+  font-size: 20px;
+}
+
+#logogenerer{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+
+}
+
+#btngenerer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+/* BOUTON INGRÉDIENT pour changer la position change right et bottom */
+
+
+#btningredient{
+    margin-left: 20px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 35px;
+    position: fixed;
+    bottom: 10px;
+    right: 180px;
+    width: 20%;
+    margin: 12px;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+#logoingrdient{
+    width: 50px;
+    height: 50px;
+}
+
+@media screen and (min-width: 1280px) {
+    main {
+       width: 80%;
+       display: flex;
+        margin: auto;
+    } 
+>>>>>>> 2e7ec3a0ec0c6c733788718b145d927569c3909b
+}   
