@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+    <div>
+        <p id="title">Ajouter des ingrédients</p>
+    </div>
+    <div id="searchbar-container">
+        <input type="text" id="searchbar" placeholder="Rechercher un ingrédient...">  
+    </div>
+    <div id="ingredients">
+        <div class="ingredient" id="salade"><img class="imgingredient" src="allooooo.png" alt=""></div>
+        <div class="ingredient" id="pain"><img class="imgingredient" src="pain.png" alt=""></div>
+        <div class="ingredient" id="tomate"><img class="imgingredient" src="tomate.png" alt=""></div>
+        <div class="ingredient" id="carotte"><img class="imgingredient" src="karotte.png" alt=""></div>
+        <div class="ingredient" id="patate"><img class="imgingredient" src="patate.png" alt=""></div>
+        <div class="ingredient" id="lait"><img class="imgingredient" src="lait.png" alt=""></div>
+        <div class="ingredient" id="fromage"><img class="imgingredient" src="fromage.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+        <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt=""></div>
+    </div>
+    </main>
+    <footer>
+        <div id="buttonsgenerercontainer">
+            <div id="btngenerer"><img src="logo Yuumi.png" id="logogenerer"><p id="txtgenerer">Générer</p></div>
+            </div>
+    </footer>
+
+<script>
+
+    let panier = [
+
+    ];
+        const img = [
+            { id: "salade",  image_nrml: "salade.png", image_sel: "" },
+            { id: "pain",  image_nrml: "pain.png", image_sel: "pain 2.png" },
+            { id: "tomate",  image_nrml: "tomate.png", image_sel: "" },
+            { id: "carotte",  image_nrml: "karotte.png", image_sel: "" }
+        ];
+    //prend tout les boutons ingrédients
+
+    let btningredient = document.querySelectorAll(".ingredient");
+    btningredient.forEach(button => {
+        button.addEventListener("click", function() {
+            console.log("Ingrédient  !");
+            let ingredientId =this.id
+            console.log(ingredientId);
+            if (panier.includes(ingredientId)) { //si l'ingrédient est déjà dans le panier
+            this.innerHTML = `<img class="imgingredient" src="${img.find(i => i.id === ingredientId).image_nrml}" alt="">`;
+                const index = panier.indexOf(ingredientId);
+                if (index !== -1) {
+                panier.splice(index, 1);
+                console.log(panier); //enlève l'ingrédient du panier
+                }   
+                return; // Sort de la fonction si l'ingrédient est déjà dans le panier
+            }
+            else{
+                //le met si c'est pas dedans
+                panier.push(ingredientId);
+                console.log(panier);
+                this.innerHTML = `<img class="imgingredient" src="${img.find(i => i.id === ingredientId).image_sel}" alt="">`;
+            }
+
+
+
+        });
+    });
+
+
+const API_KEY  = "AIzaSyBWQV1wAHjnpihCP80oBuhy5iVoAtO8jd0";
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`
+
+
+async function askGemini(prompt, retries = 3, delay = 1500) {
+    try {
+        const response = await fetch(API_URL, {                                                  
+            method: "POST",                                                                      
+            headers: {                                                                           
+                "Content-Type": "application/json",                                              
+                "x-goog-api-key": API_KEY                                                        
+            },
+            body: JSON.stringify({                                                               
+                contents: [{ parts: [{ text: prompt }] }]                                        
+            })
+        });
+
+        if (!response.ok) {                                                                      
+            const text = await response.text();                                                  
+            throw new Error(`Gemini error ${response.status}: ${text}`);                         
+        }
+
+        const data = await response.json();                                                      
+        return data.candidates?.[0]?.content?.parts?.[0]?.text || "";                            
+
+    } catch (err) {                                                                              
+        // Retry automatique si code 503 (service saturé)
+        if (retries > 0 && err.message.includes("503")) {                                        
+            console.warn(`Gemini saturé → retry dans ${delay}ms...`);                            
+            await new Promise(res => setTimeout(res, delay));                                    
+            return askGemini(prompt, retries - 1, delay * 2);                                    
+        }
+        throw err;                                                                               
+    }
+}
+
+const prompt = `
+Tu es un chef cuisinier professionnel spécialisé dans la création de recettes à partir d’ingrédients imposés.
+, je vait te fournir des données qui sont des ingrédient avec lequelle tu vas devoir faire une recette.
+
+Données :
+${JSON.stringify(panier, null, 2)}
+
+FORMAT DE RÉPONSE OBLIGATOIRE :
+- Temps de cuisson : liste à puces
+- Difficulté : une seule valeur parmi [Facile, Moyen, Difficile]
+- Instructions : texte continu, paragraphes complets
+
+NE RAJOUTE AUCUN TITRE NI COMMENTAIRE.
+
+
+Question : Fais moi une recette avec ces ingrédients?
+`;
+
+document.getElementById("btngenerer").addEventListener("click", () => {
+    console.log("Générer la recette !");
+    askGemini(prompt).then(response => {
+        console.log("Réponse de Gemini :", response);
+    });
+});
+
+
+
+    </script>
+
+
+    </body>
+</html>
+

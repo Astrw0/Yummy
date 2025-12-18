@@ -17,13 +17,42 @@ body{
      1px  1px 0 rgb(255, 255, 255);
 }
 
+#fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.6); /* fond semi-transparent */
+    z-index: 9999;
+
+    display: none; /* caché par défaut */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-content {
+    text-align: center;
+    color: #ffffff;
+}
+
+.overlay-content img {
+    width: 80px;
+    margin-bottom: 12px;
+}
+
+
+
 #title{
     color: rgb(0, 0, 0);
     font-family: 'arialrounded', sans-serif;
     margin-top: 50px;
     font-size: 30px;
     margin-left: 20px;
-    font-weight: 900;
+    font-weight: 900px;
 }
 
 #searchbar-container{
@@ -65,7 +94,7 @@ body{
     margin-top: 50px;
     font-size: 30px;
     margin-left: 20px;
-    font-weight: 900;
+
 }
 
 #saved-recipes{
@@ -101,33 +130,63 @@ body{
 
 /* BOUTON GENERER pour changer la position change right et bottom */
 #buttonsgenerercontainer{
-  position: fixed;
-  bottom: 10px;
-  right: 0px;
-  width: 30%;
-margin: 12px;
-  display: flex;
-  color: white;
-justify-content: center;
-align-items: center;
-  padding: 12px;
+    position: fixed;
+    bottom: 10px;
+    left: 40%;
+    width: 55%;
+    height: 10%;
+    margin: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 35px;
-  background: rgb(0, 0, 0);
-  box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-  z-index: 1;
+    z-index: 1;
+    font-size: 25px;
+    font-family: "Arial Rounded MT Bold", "Poppins", sans-serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+  color: #ff8bb3;
+  text-shadow:
+    -2px -2px 0 #ffffff,
+     2px -2px 0 #ffffff,
+    -2px  2px 0 #ffffff,
+     2px  2px 0 #ffffff;
+
+  background: linear-gradient(
+    to bottom,
+    #b9ffff 0%,
+    #6ee7f0 50%,
+    #4cd1dc 100%
+  );
+
+  border: 3px solid #5ccad4;
+
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+#buttonsgenerercontainer:active {
+  transform: translateY(4px);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.6),
+    inset 0 -3px 0 rgba(0,0,0,0.2),
+    0 2px 0 #3aaab5;
 }
 
 #logogenerer{
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     margin-right: 10px;
+
 }
 
 #btngenerer{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:space-around;
+    align-items:center;
     cursor: pointer;
+    
 }
 /* BOUTON INGRÉDIENT pour changer la position change right et bottom */
 
@@ -139,27 +198,120 @@ align-items: center;
     border-radius: 35px;
     position: fixed;
     bottom: 10px;
-    right: 170px;
-    width: 10%;
+    left: 3%;
+    width: 20%;
     margin: 12px;
     padding: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
-}
-
-#logoingrdient{
-    width: 40px;
     height: 40px;
 }
 
+#logoingrdient{
+    width: 50px;
+    height: 50px;
+}
+
+
+/* BOUTON DES INGREDIENTR TYPESHIII */
+
+
 .ingredient {
     display: inline-block;
-    padding: 10px 15px;
-    background-color: #9c2c2c;
     border-radius: 20px;
-    font-size: 14px;
     cursor: pointer;
-    text-align: center;
+    width: 150px;
+    height: 150px;
 }
+
+.imgingredient {
+    width:  100%;
+    height: 100%;
+}
+
+
+
+
+@media screen and (min-width: 1280px) {
+    main {
+       width: 80%;
+       height: 100vh;
+       display: flex;
+        margin: auto;
+    } 
+
+    body {
+        overflow: hidden;
+    }
+
+    #Mod1 {
+        overflow: hidden;
+        width: 100%;
+        align-items: start;
+    }
+
+    #btningredient{
+        display: none;
+    }
+
+    #buttonsgenerercontainer{
+        left: 62%;
+        width: 13%;
+        height: auto;
+        margin: 12px;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        z-index: 1;
+        font-size: 20px;
+    }
+
+    #logogenerer{
+        width: 50px;
+        height: 50px;
+        margin-right: 15%;
+        justify-content: center;
+    }
+
+    #btngenerer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .recipe-card {
+        height: 100%;
+    }
+
+    .recipe-image {
+        height: auto    ;    
+    }
+
+    #Mod2 {
+        width: 100%;
+        height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    #searchbar {
+        width: 82%;
+    }
+
+    #searchbar-container {
+        justify-content: start;
+    }
+
+    #title2 {
+        margin-left: 0%;
+        text-align: center;
+    }
+
+    #title {
+        margin-left: 0%;
+    }
+} 

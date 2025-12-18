@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style0.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="logo Yuumi.png" alt="logo Yuumi" class="logo">
+        <p id="title">Hey beber 👋</p>
+    </header>
+    <main>
+        <div id="previewdiv">
+            <img id="preview" src="" alt="Aperçu de l'image sélectionnée" >
+        </div>
+
+
+        <div id="picture">
+            <div class="infoicone" id ="ajouterphoto">
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                <button id="fileButton">Choisir une image</button>
+
+                <p class="type">Ajouter une <br>photo</p>
+                <img src="icone_ajouter_une_image.png" alt="icone ajouter une photo">
+            </div>
+            <div>
+                <p id="ou"><u>ou</u></p>
+            </div>
+            <div class="infoicone">
+                <p class="type">Prendre une <br>photo</p>
+                <img src="icone_prendre_une_photo.png" alt="icone prendre une photo">
+            </div>
+        </div>
+        <div id="recipes">
+            <p id="titlerecipe">Vos recettes récentes :</p>
+                <div class="recipe-card">
+                    <img src="39917640.png" alt="Recette 1" class="recipe-image">
+                    <div class="recipe-info">
+                        <p>Recette 1</p>
+                        <p>description bla bla bla miam tartiflette</p>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <img src="39917640.png" alt="Recette 1" class="recipe-image">
+                    <div class="recipe-info">
+                        <p>Recette 1</p>
+                        <p>description bla bla bla miam tartiflette</p>
+                    </div>
+                </div>
+        </div>
+
+    </main>
+    <footer>
+        <div id="buttonsgenerercontainer">
+            <div id="btngenerer"><img src="logo Yuumi.png" id="logogenerer"><p id="txtgenerer">Générer</p></div>
+        </div>
+    </footer>
+<script>
+    const input = document.getElementById("fileInput");
+const preview = document.getElementById("preview");
+const fileInput = document.getElementById("fileInput");
+const fileButton = document.getElementById("fileButton");
+
+fileButton.addEventListener("click", () => {
+    fileInput.click();
+});
+
+
+input.addEventListener("change", () => {
+    const file = input.files[0];
+    if (!file) return;
+
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+});
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+@font-face {
+    font-family : arialrounded;
+    src: url(arialroundedmtbold.ttf);
+}
+
+body{
+    background-color: rgba(255, 203, 243, 0.934);
+    overflow-x: hidden;
+    color: black;
+    -webkit-text-stroke: 0px ;
+    -webkit-text-stroke-color: aliceblue;
+
+  text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),
+     1px -1px 0 rgb(255, 255, 255),
+    -1px  1px 0 rgb(255, 255, 255),
+     1px  1px 0 rgb(255, 255, 255);
+}
+
+#title{
+    color: rgb(0, 0, 0);
+    font-family: 'arialrounded', sans-serif;
+    margin-top: 50px;
+    font-size: 30px;
+    margin-left: 20px;
+    font-weight: 900px;
+}
+
+#searchbar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchbar{
+    width: 90%;
+    height: 45px;
+    font-size: 16px;
+    padding-left: 17px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+}
+
+#ingredients {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2,auto);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+img {
+    width: 100%;
+}
+
+/* BOUTON GENERER pour changer la position change right et bottom */
+#buttonsgenerercontainer{
+    position: fixed;
+    bottom: 10px;
+    width: 50%;
+    margin: 12px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border-radius: 35px;
+    background: rgb(0, 0, 0);
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    z-index: 1;
+    font-size: 20px;
+    font-family: "Arial Rounded MT Bold", "Poppins", sans-serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+  color: #ff8bb3;
+  text-shadow:
+    -2px -2px 0 #ffffff,
+     2px -2px 0 #ffffff,
+    -2px  2px 0 #ffffff,
+     2px  2px 0 #ffffff;
+
+  background: linear-gradient(
+    to bottom,
+    #b9ffff 0%,
+    #6ee7f0 50%,
+    #4cd1dc 100%
+  );
+
+  border: 3px solid #5ccad4;
+
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+
+#logogenerer{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+
+}
+
+#btngenerer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+/* BOUTON INGRÉDIENT pour changer la position change right et bottom */
+
+@media screen and (min-width: 1280px) {
+    main {
+       width: 60%;
+        margin: auto;
+    } 
+
+    #ingredients {
+        grid-template-columns: repeat(4,auto);
+    }
+
+    #buttonsgenerercontainer{
+        width: 15%;
+    }
+}

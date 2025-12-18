@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <link rel="stylesheet" href="result.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <header>
+        <img src="logo Yuumi.png" alt="logo Yuumi" class="logo">
+    </header>
+
+
+
+    <main>
+        <p id="title">Vos ingrédients</p>
+        <div id="searchbar-container">
+            <input type="text" id="searchbar" placeholder="Rechercher un ingrédients...">
+        </div>
+
+
+
+        <div id="mod1">
+
+             <div id="ingredients">
+                <!-- Ici tu change pour mettre des boutons tout ca -->
+                <div class="ingredient" id="plus"><img src="icone plus.png" alt="ajouter un ingredient" id="plus"></div>
+                <div class="ingredient" id="pain"><img class="imgingredient" src="pain.png" alt="image de pain"> <img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient" id="tomate"><img class="imgingredient" src="tomate.png" alt="image de tomate"><img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient" id="carotte"><img class="imgingredient" src="karotte.png" alt="image de carotte"><img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient" id="patate"><img class="imgingredient" src="patate.png" alt="image de patate"><img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient" id="lait"><img class="imgingredient" src="lait.png" alt="image de lait"><img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient" id="fromage"><img class="imgingredient" src="fromage.png" alt="image de fromage"><img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt="image de"></div>
+            </div>
+        </div>
+
+
+
+
+        <div id="recipes">
+            <p id="titlerecipe">Recettes proposées :</p>
+            <div>
+                <div class="recipe-card">
+                    <img src="39917640.png" alt="Recette 1" class="recipe-image">
+                    <div class="recipe-info">
+                        <p>Recette 1</p>
+                        <p>description bla bla bla miam tartiflette</p>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <img src="39917640.png" alt="Recette 1" class="recipe-image">
+                    <div class="recipe-info">
+                        <p>Recette 1</p>
+                        <p>description bla bla bla miam tartiflette</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </main>
+    </main>
+
+    <script>
+        const btnmoins = document.querySelectorAll('.btnmoins');
+        let panier = [];
+        btnmoins.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const ingredient = btn.closest('.ingredient');
+                ingredient.remove();
+                panier.pop(ingredient.id);
+                console.log('Ingrédients dans le panier :', panier);
+            });
+        });
+
+        const ingredient = document.querySelectorAll('.ingredient');
+        ingredient.forEach (ing => {
+            if(ing.id === "plus") return;
+            else {
+            panier.push(ing.id);
+            console.log(panier);
+            }
+        });
+    </script>
+</body>
+</html>

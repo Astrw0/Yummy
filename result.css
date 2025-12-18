@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box;
+}
+body{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+    font-family: Arial, sans-serif;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+} 
+main {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: #fd84a5;
+    font-size: 40px;
+    padding: 6%;
+    padding-left: 4%;
+    width: 100%;
+}
+.logo {
+    width: 50px;
+    height: auto;
+}
+#searchbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    text-align: center;
+
+
+    border: 1px solid #fd84a5;
+    border-radius: 35px;
+    padding: 10px;
+}
+#searchbar {
+    text-align: center;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #333;
+    background-color: transparent;
+}
+
+#mod1{
+    margin-top: 20px;
+    margin-left: 7%;
+    display: grid;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+      /* 2 lignes fixes */
+  grid-template-rows: repeat(2, auto);
+
+  /* Remplissage par colonnes */
+  grid-auto-flow: column;
+
+  /* largeur auto des colonnes */
+  grid-auto-columns: max-content;
+
+}
+#plus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.btnmoins{
+    position:absolute;
+    z-index: 1000;
+    width: 20px;
+    height: 20px;
+    transform: scale(0.5);
+    left: 55px;
+    top: -20px;
+    transform: scale(0.7);
+}
+
+#cardplus{
+    position: fixed;
+    width: 100%;
+
+}
+
+#ingredients{
+    position: relative;
+    margin-top: 20px;
+    display: grid;
+    width: 20%;
+    gap: 5px  10px;
+
+    white-space: nowrap;
+
+      /* 2 lignes fixes */
+  grid-template-rows: repeat(2, auto);
+
+  /* Remplissage par colonnes */
+  grid-auto-flow: column;
+
+  /* largeur auto des colonnes */
+  grid-auto-columns: max-content;
+}
+
+
+.ingredient {
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    height: 100px;
+}
+
+.imgingredient {
+    width:  100%;
+    height: 85%;
+}
+
+.btnplus, .btnmoins {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.ingredientimg{
+    width: 100px;
+    height: auto;
+}
+
+#recipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+    background-color: #fd84a5;
+    font-size: 20px;
+    border-radius: 42px 42px 0px 0px ;
+    padding-top: 5%;
+
+}
+
+/* Center and stack the inner content so recipe cards appear in the middle */
+#recipes > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 20px;
+} 
+
+#titlerecipe {
+    font-size: 24px;
+}
+
+.recipe-card {
+    box-sizing: border-box;
+    width: 90%;
+    padding: 12px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    color: black;
+    overflow: hidden;
+    
+} 
+
+.recipe-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+}
+
+.recipe-info {
+    margin: 2%;
+    margin-bottom: 5%;
+}
+
+@media screen and (min-width: 1280px) {
+    header {
+        padding: 0%;
+    }
+}
