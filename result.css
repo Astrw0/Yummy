@@ -83,6 +83,7 @@ header {
     align-items: center;
     width: 90%;
     text-align: center;
+    margin-left: 7%;
 
 
     border: 1px solid #fd84a5;
@@ -243,7 +244,29 @@ header {
 }
 
 @media screen and (min-width: 1280px) {
+    main {
+        width: 80%;
+        height: 100vh;
+        display: flex;
+        margin-top: 5%;
+        flex-direction: row;
+        align-items: flex-start;
+    } 
+
     header {
-        padding: 0%;
+        padding: 2%;
+    }
+
+    #mod {
+        top: 0%;
+        order: 1;
+        width: 30%;
+        align-content: center;
+        justify-content: center;
+    }
+
+    #recipes {
+        order: 2;
+        width: 50%;
     }
 }

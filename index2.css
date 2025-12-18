@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+    color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    font-family: poppins;
+} 
+
+header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: #fd84a5;
+    font-size: 40px;
+    padding: 6%;
+    padding-left: 4%;
+    width: 100%;
+}
+
+main {
+    width: 100%;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+
+#title {
+    font-size: 30px;
+    text-align: center;
+}
+
+.image {
+    padding: 5%;
+    width: 90%;
+}
+
+.imgtartiflette {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+}
+
+#description {
+    margin: 5%;
+}
+
+.textdescription {
+    margin-left: 5%;
+}
+
+#ingredients {
+
+    display: grid;
+    width: 100%;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    justify-items: center;
+}
+
+
+#listeingredient {
+    background-color: #fd84a5;
+    border-radius: 42px;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    padding: 3%;
+    padding-bottom: 5%;
+}
+
+.ingredient {
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    cursor: pointer;
+    align-content: center;
+    justify-content: center;
+
+}
+
+.imgingredient {
+    width:  100%;
+    height: 100%;
+}
+
+#vide{
+    width: 100px;
+    height: 100px;
+}
+
+.ingredientimg{
+    width: 100px;
+    height: auto;
+}
+
+#titlepreparation {
+    font-size: 24px;
+}
+
+#preparation {
+    margin: 5%;
+}
+
+.etapes {
+    margin-left: 2%;
+}
