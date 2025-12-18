@@ -24,15 +24,15 @@
 
         <div id="mod1">
 
-             <div id="ingredients">
+            <div id="ingredients">
                 <!-- Ici tu change pour mettre des boutons tout ca -->
-                <div class="ingredient" id="plus"><img src="icone plus.png" alt="ajouter un ingredient" id="plus"></div>
-                <div class="ingredient" id="pain"><img class="imgingredient" src="pain.png" alt="image de pain"> <img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
-                <div class="ingredient" id="tomate"><img class="imgingredient" src="tomate.png" alt="image de tomate"><img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
-                <div class="ingredient" id="carotte"><img class="imgingredient" src="karotte.png" alt="image de carotte"><img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
-                <div class="ingredient" id="patate"><img class="imgingredient" src="patate.png" alt="image de patate"><img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
-                <div class="ingredient" id="lait"><img class="imgingredient" src="lait.png" alt="image de lait"><img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
-                <div class="ingredient" id="fromage"><img class="imgingredient" src="fromage.png" alt="image de fromage"><img src="blanciconemoins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient" id="plus"><a href="index1.html"><img src="icone plus.png" alt="ajouter un ingredient" id="plus"></a></div>
+                <div class="ingredient" id="pain"><img class="imgingredient" src="pain.png" alt="image de pain"> <img src="icone moins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient" id="tomate"><img class="imgingredient" src="tomate.png" alt="image de tomate"><img src="icone moins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient" id="carotte"><img class="imgingredient" src="karotte.png" alt="image de carotte"><img src="icone moins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient" id="patate"><img class="imgingredient" src="patate.png" alt="image de patate"><img src="icone moins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient" id="lait"><img class="imgingredient" src="lait.png" alt="image de lait"><img src="icone moins.png" class="btnmoins" alt="bouton moins"></div>
+                <div class="ingredient" id="fromage"><img class="imgingredient" src="fromage.png" alt="image de fromage"><img src="icone moins.png" class="btnmoins" alt="bouton moins"></div>
                 <div class="ingredient"><img class="imgingredient" src="zUOIPHGz.png" alt="image de"></div>
             </div>
         </div>
@@ -48,6 +48,13 @@
                     <div class="recipe-info">
                         <p>Recette 1</p>
                         <p>description bla bla bla miam tartiflette</p>
+                                                <div id="bouton">
+                            <div class="bouton" id="difficulte">
+                                <p>Difficile</p>
+                            </div>
+                            <div class="bouton" id="temps">
+                                <p>1h15</p>
+                            </div>
                     </div>
                 </div>
                 <div class="recipe-card">
@@ -55,6 +62,14 @@
                     <div class="recipe-info">
                         <p>Recette 1</p>
                         <p>description bla bla bla miam tartiflette</p>
+                        <div id="bouton">
+                            <div class="bouton" id="difficulte">
+                                <p>Difficile</p>
+                            </div>
+                            <div class="bouton" id="temps">
+                                <p>1h15</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,12 +80,17 @@
     <script>
         const btnmoins = document.querySelectorAll('.btnmoins');
         let panier = [];
+
         btnmoins.forEach(btn => {
             btn.addEventListener('click', () => {
                 const ingredient = btn.closest('.ingredient');
                 ingredient.remove();
-                panier.pop(ingredient.id);
+                const index = panier.indexOf(ingredient.id);
+                if (index !== -1) {
+                    panier.splice(index, 1);
+                }
                 console.log('Ingrédients dans le panier :', panier);
+                localStorage.setItem("panier", JSON.stringify(panier));
             });
         });
 
@@ -80,8 +100,11 @@
             else {
             panier.push(ing.id);
             console.log(panier);
+            localStorage.setItem("panier", JSON.stringify(panier));
             }
         });
+
+        localStorage.setItem("panier", JSON.stringify(panier));
     </script>
 </body>
 </html>

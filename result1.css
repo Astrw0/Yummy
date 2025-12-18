@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 body{
 
     display: flex;
@@ -9,7 +12,8 @@ body{
     color: white;
     font-family: Arial, sans-serif;
     flex-wrap: wrap;
-}
+    overflow-x: hidden;
+} 
 main {
     display:flex;
     justify-content: center;
@@ -21,21 +25,24 @@ header {
     display: flex;
     position: relative;
     align-items: center;
+    justify-content: center;
     background-color: #fd84a5;
     font-size: 40px;
     padding: 6%;
     padding-left: 4%;
     width: 100%;
 }
+
 .logo {
     width: 50px;
     height: auto;
 }
+
 #searchbar-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 90%;
     text-align: center;
 
 
@@ -43,15 +50,9 @@ header {
     border-radius: 35px;
     padding: 10px;
 }
-#title{
-    color: #000000;
-    font-size: 34px;
-    margin: 20px;
-}
 #searchbar {
-    text-align: left;
-    padding: 8px;
-    width: 100%;
+    text-align: center;
+    width: 80%;
     border: none;
     outline: none;
     font-size: 18px;
@@ -60,12 +61,22 @@ header {
 }
 
 #mod1{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    align-items: center;
-    width: 90%;
-    z-index: 1;
+    margin-top: 20px;
+    margin-left: 7%;
+    display: grid;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+      /* 2 lignes fixes */
+  grid-template-rows: repeat(2, auto);
+
+  /* Remplissage par colonnes */
+  grid-auto-flow: column;
+
+  /* largeur auto des colonnes */
+  grid-auto-columns: max-content;
 
 }
 #plus{
@@ -153,29 +164,61 @@ header {
 
 }
 
+/* Center and stack the inner content so recipe cards appear in the middle */
+#recipes > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 20px;
+} 
+
 #titlerecipe {
     font-size: 24px;
 }
 
 .recipe-card {
-
-    width: 100%;
-    padding: 7px;
-    margin: 4%;
+    box-sizing: border-box;
+    width: 90%;
+    padding: 12px;
     border-radius: 30px;
     border: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: white;
     color: black;
-}
+    overflow: hidden;
+    
+} 
 
 .recipe-card img {
-    display: flex;
+    display: block;
     width: 100%;
+    height: auto;
     border-radius: 30px;
 }
 
 .recipe-info {
     margin: 2%;
     margin-bottom: 5%;
+}
+
+#temps {
+    background-color: rgb(113, 223, 113);
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#difficulte {
+    background-color: rgb(255, 80, 80);
+    width: 30%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+@media screen and (min-width: 1280px) {
+    header {
+        padding: 0%;
+    }
 }

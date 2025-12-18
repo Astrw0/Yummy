@@ -12,9 +12,14 @@
         <p id="title">Hey beber 👋</p>
     </header>
     <main>
-        <div id="previewdiv">
-            <img id="preview" src="" alt="Aperçu de l'image sélectionnée" >
-        </div>
+        <div id="overlay">
+    <div class="preview-card">
+        <p class="loading-text">Scan en cours...</p>
+        <img id="previewOverlay" alt="Aperçu">
+                <div class="loader"></div>
+    </div>
+</div>
+
 
 
         <div id="picture">
@@ -66,6 +71,27 @@ const fileButton = document.getElementById("fileButton");
 fileButton.addEventListener("click", () => {
     fileInput.click();
 });
+
+const overlay = document.getElementById("overlay");
+const previewOverlay = document.getElementById("previewOverlay");
+
+input.addEventListener("change", () => {
+    const file = input.files[0];
+    if (!file) return;
+
+    previewOverlay.src = URL.createObjectURL(file);
+    overlay.style.display = "flex";
+});
+        /* Redirection après 4 secondes */
+    setTimeout(() => {
+        window.location.href = "result.html";
+    }, 6000);
+/* Clic sur l’overlay pour fermer */
+overlay.addEventListener("click", () => {
+    overlay.style.display = "none";
+});
+
+
 
 
 input.addEventListener("change", () => {

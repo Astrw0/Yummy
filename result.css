@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
 * {
     box-sizing: border-box;
 }
@@ -13,7 +16,23 @@ body{
     font-family: Arial, sans-serif;
     flex-wrap: wrap;
     overflow-x: hidden;
+    font-family: poppins;
 } 
+
+#temps {
+    background-color: rgb(113, 223, 113);
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#difficulte {
+    background-color: rgb(255, 80, 80);
+    width: 30%;
+    text-align: center;
+    border-radius: 10px;
+}
+
 main {
     display:flex;
     justify-content: center;
@@ -32,6 +51,28 @@ header {
     padding-left: 4%;
     width: 100%;
 }
+
+#title{
+    color: #000000;
+    font-size: 34px;
+    margin: 20px;
+}
+#titlerecipe {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#searchbar {
+    text-align: left;
+    padding: 8px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #333;
+    background-color: transparent;
+}
+
 .logo {
     width: 50px;
     height: auto;

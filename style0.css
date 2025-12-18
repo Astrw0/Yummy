@@ -160,26 +160,69 @@ header {
     opacity: 0;
 }
 
-#preview div{
-    position: absolute;
-    margin-top: 20px;
+/* OVERLAY FULLSCREEN */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* caché par défaut */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* CARD BLANCHE */
+.preview-card {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* TEXTE */
+.loading-text {
+    color: black;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    margin-top: 20px;
+  color: #000;
+  width: 4px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;
+  transform: translateX(-38px);
+  animation: l21 .5s infinite alternate linear;
+}
+
+@keyframes l21 {
+  50%  {box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px}
+  100% {box-shadow: 19px 0 0 0  , 38px 0 0 3px, 57px 0 0 7px}
+}
+
+/* IMAGE */
+#previewOverlay {
     width: 100%;
-    height: 100%;
-    display: none;
-    background-color: #4cd1dc;
+    border-radius: 15px;
 }
 
-#preview{
 
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position:absolute;
-    width: 70%;
-}
+
 
 @media screen and (min-width: 1280px) {
     main {
